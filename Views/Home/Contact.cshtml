@@ -1,13 +1,55 @@
-@{
-    ViewData["Title"] = "Contact";
-}
-<div class="ui container">
-    <h2>@ViewData["Title"]</h2>
-    <h3>@ViewData["Message"]</h3>
-    <address>
-        One Microsoft Way<br/>
-        Redmond, WA 98052-6399<br/>
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
+@{ ViewData["Title"] = "Contact"; }
+@model ContactForm
+
+<div class="ui fixed inverted menu">
+    <div class="ui container">
+        <a href="#" class="header item">
+        Azure Friday
+      </a>
+        <a href="@Url.Action("Index")" class="item">Home</a>
+        <div class="ui simple dropdown item">
+            Dropdown <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="#">Link Item</a>
+                <a class="item" href="#">Link Item</a>
+                <div class="divider"></div>
+                <div class="header">Header Item</div>
+                <div class="item">
+                    <i class="dropdown icon"></i> Sub Menu
+                    <div class="menu">
+                        <a class="item" href="#">Link Item</a>
+                        <a class="item" href="#">Link Item</a>
+                    </div>
+                </div>
+                <a class="item" href="#">Link Item</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pusher">
+        <div class="ui very padded vertical segment contact">
+              <h1 class="ui header">Contact Us Form</h1>
+        </div>
+    <div class="ui very padded vertical segment">
+        <div class="ui main text container">
+          
+            <p>Please send us feedback, bugs, or leave us a nice comment.</p>
+            <p>We will get back to you if requested.</p>
+            <form asp-controller="Home" asp-action="SubmitForm" method="post" class="ui form">
+                <div class="field">
+                    <label>Name</label>
+                    <input asp-for="Name" type="text" placeholder="Name">
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input asp-for="Email" type="email" placeholder="Email">
+                </div>
+                <div class="field">
+                    <label>Message</label>
+                    <textarea asp-for="Message" rows="3" type="text"></textarea>
+                </div>
+                <button class="ui button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>

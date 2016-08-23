@@ -1,5 +1,5 @@
 @{ ViewData["Title"] = "Contact"; }
-@model ContactForm
+@model ContactViewModel
 
 <div class="ui fixed inverted menu">
     <div class="ui container">
@@ -45,9 +45,17 @@
                     <input asp-for="Email" type="email" placeholder="Email">
                 </div>
                 <div class="field">
+                    <label>Subject</label>
+                    <input asp-for="Subject" type="text" placeholder="Subject">
+                </div>
+                <div class="field">
                     <label>Message</label>
                     <textarea asp-for="Message" rows="3" type="text"></textarea>
                 </div>
+                <!--<div class="field">
+                    <label>Topic</label>
+                    <select asp-for="Type" asp-items="Model.Types"></select>
+                </div>-->
                 <button onclick="formLoading()" class="ui button" type="submit">Submit</button>
             </form>
         </div>

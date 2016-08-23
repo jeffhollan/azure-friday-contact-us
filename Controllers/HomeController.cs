@@ -11,8 +11,11 @@ using Newtonsoft.Json;
 
 namespace azure_friday.Controllers
 {
+    
     public class HomeController : Controller
     {
+        private const string form_url = @"http://requestb.in/151srvw1";
+
         public IActionResult Index()
         {
             return View();
@@ -26,8 +29,8 @@ namespace azure_friday.Controllers
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var form = new Models.ContactViewModel();
+            return View(form);
         }
 
         public IActionResult Error()
@@ -37,10 +40,10 @@ namespace azure_friday.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<IActionResult> SubmitForm(ContactForm form)
+        public async Task<IActionResult> SubmitForm(ContactViewModel form)
         {
             using(var client = new HttpClient()){
-                await client.PostAsync("http://requestb.in/zxhl42zx", 
+                await client.PostAsync(form_url, 
                   new StringContent(JsonConvert.SerializeObject(form), Encoding.UTF8, "application/json"));
             }
             return View("Submitted");

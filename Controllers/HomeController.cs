@@ -39,7 +39,6 @@ namespace azure_friday.Controllers
         [HttpPost]
         public async Task<IActionResult> SubmitForm(ContactForm form)
         {
-            Debug.WriteLine("got here");
             using(var client = new HttpClient()){
                 await client.PostAsync("http://requestb.in/zxhl42zx", 
                   new StringContent(JsonConvert.SerializeObject(form), Encoding.UTF8, "application/json"));

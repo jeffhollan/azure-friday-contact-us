@@ -35,7 +35,7 @@
           
             <p>Please send us feedback, bugs, or leave us a nice comment.</p>
             <p>We will get back to you if requested.</p>
-            <form asp-controller="Home" asp-action="SubmitForm" method="post" class="ui form">
+            <form asp-controller="Home" asp-action="SubmitForm" method="post" id="contactform" class="ui form">
                 <div class="field">
                     <label>Name</label>
                     <input asp-for="Name" type="text" placeholder="Name">
@@ -48,7 +48,7 @@
                     <label>Message</label>
                     <textarea asp-for="Message" rows="3" type="text"></textarea>
                 </div>
-                <button class="ui button" type="submit">Submit</button>
+                <button onclick="formLoading()" class="ui button" type="submit">Submit</button>
             </form>
         </div>
     </div>

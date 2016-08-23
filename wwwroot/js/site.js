@@ -21,3 +21,7 @@ $(document)
 
     })
   ;
+
+function formLoading() {
+    $('#contactform').attr('class', 'ui loading form');
+}

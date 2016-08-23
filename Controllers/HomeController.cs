@@ -14,7 +14,9 @@ namespace azure_friday.Controllers
     
     public class HomeController : Controller
     {
-        private const string form_url = @"http://requestb.in/151srvw1";
+        private const string form_url = 
+            @"http://requestb.in/151srvw1";
+       //     @"https://prod-00.westus.logic.azure.com:443/workflows/e7d12b99810246a4aa406cfd9889332a/triggers/manual/run?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=y2u-PKFtEB2JXaalLSI4GYYfzEil1T4YPUGaGwdgBeU";
 
         public IActionResult Index()
         {
